@@ -1,12 +1,16 @@
 import pysftp
+import os
+from dotenv import load_dotenv
 
-SFTP_HOST = "5.189.154.248"
-SFTP_PORT = 22
-SFTP_USER = "farhan"
-SFTP_PASS = "Passwd093"
+# Load .env file
+load_dotenv()
 
-REMOTE_FILE_PATH = "/uploads/transformed_post_ekraf.csv"
-LOCAL_UPLOAD_FILE = "transformed_post_ekraf.csv"
+SFTP_HOST = os.getenv("SFTP_HOST")
+SFTP_PORT = int(os.getenv("SFTP_PORT"))
+SFTP_USER = os.getenv("SFTP_USER")
+SFTP_PASS = os.getenv("SFTP_PASS")
+REMOTE_FILE_PATH = os.getenv("REMOTE_FILE_PATH")
+LOCAL_UPLOAD_FILE = os.getenv("LOCAL_UPLOAD_FILE")
 
 def download_from_sftp():
     cnopts = pysftp.CnOpts()
