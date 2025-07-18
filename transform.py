@@ -37,9 +37,7 @@ with open("posts_ekraf.csv", mode='r', newline='', encoding='utf-8') as infile:
             "user_name": user_dict.get("name"),
             "user_email": user_dict.get("email"),
             "categories": "|".join([str(c.get("title", "")) for c in categories]),
-            "tags": "|".join([str(t.get("name", "")) for t in tags]),
-            "views": item.get("views"),
-            
+            "tags": "|".join([str(t.get("name", "")) for t in tags])
         }
         transformed_data.append(transformed)
 
